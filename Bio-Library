@@ -25,9 +25,9 @@
 					<nav>
 						<ul>
 							<li><a href="#Bio-Library">Bio-Library</a></li> 
-							<li><a href="#Prog_Invasive">Prog_Invasive</a></li> 
-							<li><a href="#Prog_endangered">Prog_endangered</a></li>  
-							<li><a href="Prog_Bioglow" >Project Bioglow</a></li>  
+							<li><a href="#Prog_Invasive">Invasive</a></li> 
+							<li><a href="#Prog_Endangered">Endangered</a></li>  
+							<li><a href="Prog_Bioglow" >Bioglow</a></li>  
 							<li><a href="#Links">Links</a></li>
 						</ul>
 					</nav>
