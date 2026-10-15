@@ -1,0 +1,582 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🌍 Endangered Animals of Missouri – Kids' Bio Library</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{
+    font-family:'Segoe UI',system-ui,sans-serif;
+    background:#fdf6e3;
+    color:#2d2a26;
+    line-height:1.65;
+  }
+
+  /* ── HERO ── */
+  .hero{
+    background:linear-gradient(160deg,#2e7d32 0%,#43a047 40%,#66bb6a 100%);
+    color:#fff;
+    text-align:center;
+    padding:60px 20px 70px;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero::before{
+    content:'🌿 🍄 🌱 🌾 🐾 🌻';
+    position:absolute;bottom:12px;left:50%;
+    transform:translateX(-50%);
+    font-size:1.2rem;letter-spacing:12px;opacity:.35;
+    white-space:nowrap;
+  }
+  .hero .emoji-big{font-size:4rem;display:block;margin-bottom:12px}
+  .hero h1{
+    font-size:clamp(1.8rem,5vw,2.6rem);
+    font-weight:900;
+    text-shadow:0 2px 8px rgba(0,0,0,.2);
+    margin-bottom:10px;
+  }
+  .hero p{
+    font-size:1.1rem;
+    max-width:560px;margin:0 auto;
+    opacity:.92;
+  }
+  .hero .badge{
+    display:inline-block;margin-top:18px;
+    background:rgba(255,255,255,.18);
+    border:1.5px solid rgba(255,255,255,.35);
+    border-radius:99px;padding:6px 20px;
+    font-size:.8rem;font-weight:700;
+    letter-spacing:.06em;text-transform:uppercase;
+  }
+
+  /* ── WHAT IS ENDANGERED? ── */
+  .explain{
+    max-width:720px;margin:-30px auto 0;
+    position:relative;z-index:2;
+    background:#fff;border-radius:18px;
+    box-shadow:0 4px 20px rgba(0,0,0,.1);
+    padding:32px 28px;
+    text-align:center;
+  }
+  .explain .icon{font-size:2.4rem;display:block;margin-bottom:8px}
+  .explain h2{font-size:1.3rem;color:#2e7d32;margin-bottom:8px}
+  .explain p{font-size:1rem;color:#555}
+  .explain .fun-box{
+    margin-top:16px;background:#fff8e1;
+    border-left:5px solid #f9a825;
+    border-radius:0 10px 10px 0;
+    padding:12px 16px;text-align:left;
+    font-size:.92rem;color:#5d4037;
+  }
+  .explain .fun-box strong{color:#e65100}
+
+  /* ── CONTAINER ── */
+  .wrap{
+    max-width:720px;
+    margin:0 auto;
+    padding:40px 18px 60px;
+  }
+
+  /* ── SECTION LABELS ── */
+  .sec-label{
+    display:flex;align-items:center;gap:10px;
+    margin:36px 0 18px;
+  }
+  .sec-label .dot{
+    width:14px;height:14px;border-radius:50%;flex-shrink:0;
+  }
+  .sec-label h3{font-size:1.2rem;font-weight:800}
+  .sec-label .sub{font-size:.85rem;color:#888;margin-left:auto;font-weight:400}
+
+  .dot.red{background:#e53935}
+  .dot.amber{background:#f9a825}
+  .dot.blue{background:#1e88e5}
+  .dot.purple{background:#8e24aa}
+  .dot.green{background:#43a047}
+
+  /* ── ANIMAL CARD ── */
+  .card{
+    background:#fff;
+    border-radius:18px;
+    box-shadow:0 2px 12px rgba(0,0,0,.07);
+    margin-bottom:20px;
+    overflow:hidden;
+    transition:transform .2s,box-shadow .2s;
+  }
+  .card:hover{transform:translateY(-3px);box-shadow:0 6px 24px rgba(0,0,0,.12)}
+
+  .card-top{
+    padding:28px 24px 18px;
+    display:flex;align-items:center;gap:18px;
+  }
+  .card-emoji{
+    width:72px;height:72px;
+    border-radius:18px;
+    display:flex;align-items:center;justify-content:center;
+    font-size:2.4rem;flex-shrink:0;
+  }
+  .card-emoji.red-bg{background:#ffebee}
+  .card-emoji.amber-bg{background:#fff8e1}
+  .card-emoji.blue-bg{background:#e3f2fd}
+  .card-emoji.purple-bg{background:#f3e5f5}
+
+  .card-name{flex:1}
+  .card-name h4{font-size:1.15rem;font-weight:800;margin-bottom:2px}
+  .card-name .sci{font-style:italic;font-size:.85rem;color:#999}
+  .card-name .type{
+    display:inline-block;margin-top:4px;
+    font-size:.7rem;font-weight:700;
+    padding:2px 10px;border-radius:99px;
+    letter-spacing:.04em;text-transform:uppercase;
+  }
+  .type.mollusk{background:#e8f5e9;color:#2e7d32}
+  .type.fish{background:#e3f2fd;color:#1565c0}
+  .type.butterfly{background:#fff3e0;color:#e65100}
+  .type.orchid{background:#f3e5f5;color:#6a1b9a}
+  .type.bee{background:#fff8e1;color:#f57f17}
+
+  .status-pill{
+    font-size:.65rem;font-weight:800;
+    padding:5px 12px;border-radius:99px;
+    letter-spacing:.05em;text-transform:uppercase;
+    flex-shrink:0;
+  }
+  .pill-red{background:#e53935;color:#fff}
+  .pill-amber{background:#f9a825;color:#fff}
+  .pill-blue{background:#1e88e5;color:#fff}
+
+  .card-body{
+    padding:0 24px 24px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:14px;
+  }
+  @media(max-width:500px){.card-body{grid-template-columns:1fr}}
+
+  .info-box{
+    border-radius:12px;
+    padding:14px 16px;
+    font-size:.9rem;
+  }
+  .info-box .ib-label{
+    font-size:.68rem;font-weight:800;
+    text-transform:uppercase;letter-spacing:.07em;
+    margin-bottom:4px;display:flex;align-items:center;gap:4px;
+  }
+  .ib-about{background:#f5f5f5}
+  .ib-about .ib-label{color:#616161}
+  .ib-where{background:#e8f5e9}
+  .ib-where .ib-label{color:#2e7d32}
+  .ib-why{background:#fff3e0}
+  .ib-why .ib-label{color:#e65100}
+  .ib-fun{background:#e3f2fd}
+  .ib-fun .ib-label{color:#1565c0}
+
+  /* ── HELP SECTION ── */
+  .help-section{
+    background:linear-gradient(135deg,#1b5e20,#2e7d32);
+    border-radius:18px;
+    color:#fff;
+    padding:32px 28px;
+    margin-top:40px;
+  }
+  .help-section h3{
+    font-size:1.3rem;margin-bottom:6px;
+    display:flex;align-items:center;gap:8px;
+  }
+  .help-section p{font-size:.92rem;opacity:.85;margin-bottom:18px}
+  .help-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:12px;
+  }
+  .help-item{
+    background:rgba(255,255,255,.12);
+    border-radius:12px;
+    padding:16px 14px;
+    text-align:center;
+    font-size:.88rem;
+    transition:background .2s;
+  }
+  .help-item:hover{background:rgba(255,255,255,.22)}
+  .help-item .hi-emoji{font-size:1.8rem;display:block;margin-bottom:6px}
+  .help-item .hi-text{font-weight:700;margin-bottom:2px}
+  .help-item .hi-desc{font-size:.8rem;opacity:.8}
+
+  /* ── FOOTER ── */
+  footer{
+    text-align:center;
+    padding:28px 16px;
+    font-size:.78rem;
+    color:#999;
+    background:#f5f0e0;
+  }
+  footer a{color:#2e7d32}
+</style>
+</head>
+<body>
+
+<!-- ═══════ HERO ═══════ -->
+<div class="hero">
+  <span class="emoji-big">🐾</span>
+  <h1>Endangered Friends of Missouri</h1>
+  <p>Meet the wild animals and plants that are in big trouble right here in our state — and learn how <strong>you</strong> can help save them!</p>
+  <div class="badge">Kids' Bio Library · Missouri</div>
+</div>
+
+<!-- ═══════ WHAT IS ENDANGERED? ═══════ -->
+<div class="explain">
+  <span class="icon">🤔</span>
+  <h2>What does "Endangered" really mean?</h2>
+  <p>Imagine your favorite stuffed animal was the <em>only one left in the whole world.</em> If something happened to it, it would be gone 
+<strong>forever.</strong> That's basically what endangered means for a wild species — there are so few left that one bad event (like losing their home) 
+could wipe them out completely.</p>
+  <div class="fun-box">
+    <strong>🔍 Fun fact:</strong> Scientists use a scale called the <em>IUCN Red List</em> to track how close a species is to disappearing. "Critically 
+Endangered" is the highest danger level — even scarier than "Endangered"!
+  </div>
+</div>
+
+<!-- ═══════ MAIN CONTENT ═══════ -->
+<div class="wrap">
+
+  <!-- ── ENDANGERED ── -->
+  <div class="sec-label">
+    <div class="dot red"></div>
+    <h3>In the Most Danger</h3>
+    <span class="sub">Federally Endangered in Missouri</span>
+  </div>
+
+  <!-- Paddle Snail -->
+  <div class="card">
+    <div class="card-top">
+      <div class="card-emoji red-bg">🐚</div>
+      <div class="card-name">
+        <h4>Paddle Snail</h4>
+        <span class="sci">Plagiopora plicifera</span><br>
+        <span class="type mollusk">Freshwater Mussel</span>
+      </div>
+      <span class="status-pill pill-red">Endangered</span>
+    </div>
+    <div class="card-body">
+      <div class="info-box ib-about">
+        <div class="ib-label">🧬 What is it?</div>
+        A tiny freshwater mussel — think of it like a living rock with a shell! It filters water and helps keep rivers clean, kind of like a natural water 
+purifier.
+      </div>
+      <div class="info-box ib-where">
+        <div class="ib-label">📍 Where does it live?</div>
+        Only in a <strong>handful</strong> of Missouri streams. Fewer than 5 known spots! That's why it's ranked "critically imperilable" in our state.
+      </div>
+      <div class="info-box ib-why">
+        <div class="ib-label">⚠ Why is it in trouble?</div>
+        Damaged riverbeds, pollution, and dams blocking its path make it hard for these little mussels to find food and make babies.
+      </div>
+      <div class="info-box ib-fun">
+        <div class="ib-label">💡 Cool fact!</div>
+        Paddle Snails can live for <strong>over 100 years</strong>! But because they grow so slowly, a single bad year can wipe out a whole population.
+      </div>
+    </div>
+  </div>
+
+  <!-- Hine's Banded Darter -->
+  <div class="card">
+    <div class="card-top">
+      <div class="card-emoji red-bg">🐟</div>
+      <div class="card-name">
+        <h4>Hine's Banded Darter</h4>
+        <span class="sci">Hypseleotris hinesii</span><br>
+        <span class="type fish">Freshwater Fish</span>
+      </div>
+      <span class="status-pill pill-red">Endangered</span>
+    </div>
+    <div class="card-body">
+      <div class="info-box ib-about">
+        <div class="ib-label">🧬 What is it?</div>
+        A super small fish — only about <strong>4 inches</strong> long — with a cool dark band across its body. It looks a bit like a tiny, streamlined 
+torpedo.
+      </div>
+      <div class="info-box ib-where">
+        <div class="ib-label">📍 Where does it live?</div>
+        Rocky-bottom streams in parts of Missouri, Oklahoma, and Texas. In Missouri, there are very few rivers where you'd still find one.
+      </div>
+      <div class="info-box ib-why">
+        <div class="ib-label">⚠ Why is it in trouble?</div>
+        Silt (muddy sediment) covers the rocks it needs to live on, and channelizing (straightening) streams destroys its home.
+      </div>
+      <div class="info-box ib-fun">
+        <div class="ib-label">💡 Cool fact!</div>
+        Despite being tiny, this fish is a <strong>super swimmer</strong>! It can navigate fast-flowing water better than most fish its size. It was named 
+after biologist J.C. Hine.
+      </div>
+    </div>
+  </div>
+
+  <!-- ── PROPOSED ENDANGERED ── -->
+  <div class="sec-label">
+    <div class="dot amber"></div>
+    <h3>On the Verge</h3>
+    <span class="sub">Proposed for Endangered status</span>
+  </div>
+
+  <!-- Fender's Blue -->
+  <div class="card">
+    <div class="card-top">
+      <div class="card-emoji amber-bg">🦋</div>
+      <div class="card-name">
+        <h4>Fender's Blue Butterfly</h4>
+        <span class="sci">Leptotes fenderi</span><br>
+        <span class="type butterfly">Butterfly</span>
+      </div>
+      <span class="status-pill pill-amber">Proposed E</span>
+    </div>
+    <div class="card-body">
+      <div class="info-box ib-about">
+        <div class="ib-label">🧬 What is it?</div>
+        A small, pretty blue butterfly. The males shimmer with a deep blue; the females look more brownish. They're about the size of your thumbnail.
+      </div>
+      <div class="info-box ib-where">
+        <div class="ib-label">📍 Where did it live?</div>
+        Missouri used to be home to Fender's Blues, but they've <strong>disappeared from the state</strong>. They still exist in a few other places, which 
+is why the feds are about to protect them.
+      </div>
+      <div class="info-box ib-why">
+        <div class="ib-label">⚠ Why did it disappear?</div>
+        Its larva (caterpillar) stage <em>only</em> eats one specific type of milkweed. When that plant is lost, the butterfly can't survive.
+      </div>
+      <div class="info-box ib-fun">
+        <div class="ib-label">💡 Cool fact!</div>
+        Fender's Blues were named after <strong>Aaron Fender</strong>, a Texas rancher, where they were first found. Scientists are now trying to bring 
+them back to places they used to live!
+      </div>
+    </div>
+  </div>
+
+  <!-- ── WAIT LISTED / ALSO IN TROUBLE ── -->
+  <div class="sec-label">
+    <div class="dot blue"></div>
+    <h3>Friends Who Also Need Help</h3>
+    <span class="sub">On the federal Wait List</span>
+  </div>
+
+  <!-- Prairie Fringed Orchid -->
+  <div class="card">
+    <div class="card-top">
+      <div class="card-emoji purple-bg">🌸</div>
+      <div class="card-name">
+        <h4>Prairie Fringed Orchid</h4>
+        <span class="sci">Platanthera integrifolia</span><br>
+        <span class="type orchid">Wildflower</span>
+      </div>
+      <span class="status-pill pill-blue">Wait List</span>
+    </div>
+    <div class="card-body">
+      <div class="info-box ib-about">
+        <div class="ib-label">🌿 What is it?</div>
+        A beautiful white orchid with fringed petals, like a tiny lily of the valley. It grows on open prairies and blooms in early summer.
+      </div>
+      <div class="info-box ib-where">
+        <div class="ib-label">📍 Where did it grow?</div>
+        Missouri prairies — but it's now <strong>extremely rare</strong> here. Only a handful of states still have healthy populations.
+      </div>
+      <div class="info-box ib-why">
+        <div class="ib-label">⚠ Why is it rare?</div>
+        Most Missouri prairies have been turned into farmland. This orchid also needs a very specific type of fungus to grow, so it's a double whammy.
+      </div>
+      <div class="info-box ib-fun">
+        <div class="ib-label">💡 Cool fact!</div>
+        Its seeds are so tiny and tiny that a single flower can make <strong>thousands of them</strong> — but most will never grow into a plant. It takes 
+3–5 years from seed to first bloom!
+      </div>
+    </div>
+  </div>
+
+  <!-- Henslow's Bumble Bee -->
+  <div class="card">
+    <div class="card-top">
+      <div class="card-emoji amber-bg">🐝</div>
+      <div class="card-name">
+        <h4>Henslow's Bumble Bee</h4>
+        <span class="sci">Bombus henslowii</span><br>
+        <span class="type bee">Bumble Bee</span>
+      </div>
+      <span class="status-pill pill-blue">Wait List</span>
+    </div>
+    <div class="card-body">
+      <div class="info-box ib-about">
+        <div class="ib-label">🍯 What is it?</div>
+        A chunky, fuzzy bumble bee with a black body and a rusty-orange band across its middle. About the size of a grape.
+      </div>
+      <div class="info-box ib-where">
+        <div class="ib-label">📍 Where was it seen?</div>
+        Once found in Missouri prairies and meadows, now it's a <strong>ghost species</strong> here — we only have old records.
+      </div>
+      <div class="info-box ib-why">
+        <div class="ib-label">⚠ Why is it in trouble?</div>
+        Pesticides, loss of wildflower meadows, and even parasitic mites from Europe are making life very hard for native bumble bees.
+      </div>
+      <div class="info-box ib-fun">
+        <div class="ib-label">💡 Cool fact!</div>
+        Henslow's Bumble Bee can <strong>hum at a specific frequency</strong> to vibrate flowers and release pollen — a trick called "buzz pollination." 
+It's like the bee has its own built-in speaker! 🔊
+      </div>
+    </div>
+  </div>
+
+  <!-- Karner Blue -->
+  <div class="card">
+    <div class="card-top">
+      <div class="card-emoji blue-bg">🦋</div>
+      <div class="card-name">
+        <h4>Karner Blue Butterfly</h4>
+        <span class="sci">Lycaeides melissa samuelis</span><br>
+        <span class="type butterfly">Butterfly</span>
+      </div>
+      <span class="status-pill pill-blue">Wait List</span>
+    </div>
+    <div class="card-body">
+      <div class="info-box ib-about">
+        <div class="ib-label">🧬 What is it?</div>
+        A small, silvery-blue butterfly. The males are bright blue on top; the females are greenish-white underneath with a blue band. Very pretty up 
+close!
+      </div>
+      <div class="info-box ib-where">
+        <div class="ib-label">📍 Where was it found?</div>
+        Historically in Missouri's oak savannas and pine barrens. Now <strong>extremely rare</strong> or gone from the state.
+      </div>
+      <div class="info-box ib-why">
+        <div class="ib-label">⚠ Why is it in trouble?</div>
+        Its caterpillars only eat wild blueberries and cranberries. Clearing forests for development removes both the berries <em>and</em> the oak trees it 
+needs for shade.
+      </div>
+      <div class="info-box ib-fun">
+        <div class="ib-label">💡 Cool fact!</div>
+        Karner Blues were first described from <strong>Blue Hill, Massachusetts</strong>. They're one of the most "hard to tell apart" butterflies — 
+scientists used to think they were just a color variation of another species!
+      </div>
+    </div>
+  </div>
+
+  <!-- Pygmy Rusty-Tipped -->
+  <div class="card">
+    <div class="card-top">
+      <div class="card-emoji purple-bg">🦋</div>
+      <div class="card-name">
+        <h4>Pygmy Rusty-Tipped Butterfly</h4>
+        <span class="sci">Eresia hecale</span><br>
+        <span class="type butterfly">Butterfly</span>
+      </div>
+      <span class="status-pill pill-blue">Wait List</span>
+    </div>
+    <div class="card-body">
+      <div class="info-box ib-about">
+        <div class="ib-label">🧬 What is it?</div>
+        A tiny, striking butterfly with black and orange wings and rust-colored "tips" — hence the name. It's one of the smallest butterflies in North 
+America.
+      </div>
+      <div class="info-box ib-where">
+        <div class="ib-label">📍 Where was it found?</div>
+        Once in the sandy, pine-wooded areas of south Missouri. Now considered <strong>extirpated</strong> (locally extinct) in the state.
+      </div>
+      <div class="info-box ib-why">
+        <div class="ib-label">⚠ Why is it in trouble?</div>
+        It needs sandy, open pine habitats with specific host plants (mainly in the <em>Celastrus</em> family). Development and forest succession (trees 
+growing too dense) destroy that habitat.
+      </div>
+      <div class="info-box ib-fun">
+        <div class="ib-label">💡 Cool fact!</div>
+        "Pygmy" comes from <strong>Pygmy midgets</strong> in Greek myth — tiny people! This butterfly is truly miniature: only about <strong>1.5 
+inches</strong> from wingtip to wingtip.
+      </div>
+    </div>
+  </div>
+
+  <!-- White-Patched Fivestain -->
+  <div class="card">
+    <div class="card-top">
+      <div class="card-emoji purple-bg">🦋</div>
+      <div class="card-name">
+        <h4>White-Patched Fivestain</h4>
+        <span class="sci">Pseudolycaena damo</span><br>
+        <span class="type butterfly">Butterfly</span>
+      </div>
+      <span class="status-pill pill-blue">Wait List</span>
+    </div>
+    <div class="card-body">
+      <div class="info-box ib-about">
+        <div class="ib-label">🧬 What is it?</div>
+        A small copper-brown butterfly with <strong>five orange spots</strong> and a white patch on the underside of its hindwing. "Fivestain" = five 
+stains!
+      </div>
+      <div class="info-box ib-where">
+        <div class="ib-label">📍 Where was it found?</div>
+        Dry, sandy uplands in parts of Missouri and the Southeast. Now <strong>very rare or absent</strong> from the state.
+      </div>
+      <div class="info-box ib-why">
+        <div class="ib-label">⚠ Why is it in trouble?</div>
+        It needs open, sandy habitats with specific legume host plants. When those areas are paved, farmed, or allowed to turn into dense forest, the 
+Fivestain disappears.
+      </div>
+      <div class="info-box ib-fun">
+        <div class="ib-label">💡 Cool fact!</div>
+        The "five stains" on its wings are actually <strong>eye-spots</strong> — tiny markings that look like little eyes to scare off predators like 
+birds. Evolution's trickster! 👀
+      </div>
+    </div>
+  </div>
+
+  <!-- ── WHAT CAN YOU DO? ── -->
+  <div class="help-section">
+    <h3>🌱 What Can <em>You</em> Do?</h3>
+    <p>Even kids can be conservation heroes. Here are real ways to help these endangered friends:</p>
+    <div class="help-grid">
+      <div class="help-item">
+        <span class="hi-emoji">🌻</span>
+        <div class="hi-text">Plant Native Flowers</div>
+        <div class="hi-desc">Milkweed, wildflowers, and berry bushes feed butterflies and bees.</div>
+      </div>
+      <div class="help-item">
+        <span class="hi-emoji">🚫</span>
+        <div class="hi-text">Skip the Pesticides</div>
+        <div class="hi-desc">One spray can kill hundreds of bumble bees and butterflies at once.</div>
+      </div>
+      <div class="help-item">
+        <span class="hi-emoji">🥾</span>
+        <div class="hi-text">Stay on the Trail</div>
+        <div class="hi-desc">In streams and prairies, stepping off-path can crush eggs, mussels, or rare plants.</div>
+      </div>
+      <div class="help-item">
+        <span class="hi-emoji">📸</span>
+        <div class="hi-text">Spot &amp; Report</div>
+        <div class="hi-desc">See something weird in a creek or meadow? Take a photo and tell a grown-up or call the MDC.</div>
+      </div>
+      <div class="help-item">
+        <span class="hi-emoji">📖</span>
+        <div class="hi-text">Learn &amp; Share</div>
+        <div class="hi-desc">The more people know, the more they care. Tell your friends what you learned today!</div>
+      </div>
+      <div class="help-item">
+        <span class="hi-emoji">🌊</span>
+        <div class="hi-text">Protect Water</div>
+        <div class="hi-desc">Mussels and darters need clean, flowing water. Pick up trash near streams. Every bit counts.</div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /wrap -->
+
+<!-- ═══════ FOOTER ═══════ -->
+<footer>
+  <p>
+    🐾 <strong>Missouri Kids' Bio Library</strong> · Endangered Species Page<br>
+    Based on the <em>2026 Missouri Species &amp; Communities of Conservation Concern Checklist</em> — Missouri Dept. of Conservation<br>
+    Questions? Visit <a href="https://naturalheritagereview.mdc.mo.gov">naturalheritagereview.mdc.mo.gov</a> or call (573) 522-4115
+  </p>
+</footer>
+
+</body>
+</html>
+```
+
