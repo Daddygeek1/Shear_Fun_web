@@ -1,0 +1,189 @@
+```
+html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Bio-Library | ShearFun 71330</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+</head>
+<body class="is-preload">
+
+    <!-- Sidebar -->
+    <section id="sidebar">
+        <div class="inner">
+            <nav>
+                <ul>
+                    <li><a href="index.html">ShearFun Home</a></li>
+                    <li><a href="Bio_Library.html">Bio Library</a></li>
+                    <li><a href="Invasive.html">Invasive</a></li>
+                    <li><a href="Endangered.html">Endangered</a></li>
+                    <li><a href="Bioglow.html">Bioglow</a></li>
+                    <li><a href="Links.html">Links</a></li>
+                </ul>
+            </nav>
+        </div>
+    </section>
+
+    <!-- Wrapper -->
+    <div id="wrapper">
+
+        <!-- Intro -->
+        <section id="intro" class="wrapper style1 fullscreen fade-up">
+            <div class="inner">
+                <h1>Bio-Library</h1>
+                <p>Hi! We're team ShearFun 71330 and we made this website all about the plants and animals in Missouri. It's our 2026-2027 FLL project! We 
+wanted to make a place where people can learn about what's growing and living in our state, and why it's important to take care of it. Click around and 
+check out the different pages!</p>
+                <ul class="actions">
+                    <li><a href="#invasive" class="button scrolly">Check It Out</a></li>
+                    <li><a href="index.html" class="button alt">&larr; Our Team Page</a></li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Spotlights -->
+        <section id="invasive" class="wrapper style2 spotlights">
+
+            <!-- Invasive -->
+            <section>
+                <a href="Invasive.html" class="image">
+                    <img src="images/Buttons.jpg" alt="Invasive Species" data-position="25% 25%" />
+                </a>
+                <div class="content">
+                    <div class="inner">
+                        <h2>Invasive Species</h2>
+                        <p>So there are these plants and animals that come from somewhere else and they just... take over everything. Like kudzu and 
+Japanese knotweed. They're not from Missouri and they push out the stuff that IS from Missouri. It's actually pretty annoying. We made a whole page about 
+it.</p>
+                        <ul class="actions">
+                            <li><a href="Invasive.html" class="button">Go There</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Endangered -->
+            <section>
+                <a href="Endangered.html" class="image">
+                    <img src="images/Buttons.jpg" alt="Endangered Species" data-position="top center" />
+                </a>
+                <div class="content">
+                    <div class="inner">
+                        <h2>Endangered Species</h2>
+                        <p>This page is about the animals and plants in Missouri that are really close to disappearing. Like we're sorry. We didn't do a 
+great job protecting them. This page tells you what they are and what we can do to help them stick around.</p>
+                        <ul class="actions">
+                            <li><a href="Endangered.html" class="button">Go There</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Bioglow -->
+            <section>
+                <a href="Bioglow.html" class="image">
+                    <img src="images/pic03.jpg" alt="Bioglow" data-position="25% 25%" />
+                </a>
+                <div class="content">
+                    <div class="inner">
+                        <h2>Bio-Glow</h2>
+                        <p>This is the Bioglow and it's SO cool. We did a whole project on it.</p>
+                        <ul class="actions">
+                            <li><a href="Bioglow.html" class="button">Go There</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+        </section>
+
+        <!-- Why We Made This -->
+        <section id="two" class="wrapper style3 fade-up">
+            <div class="inner">
+                <h2>Why We Made This</h2>
+                <p>Our FLL challenge for this season (Bio Glow) is about the environment and taking care of nature. Bio Library is the 2026 team project, 
+an online website created to provide the community with information about preserving Missouri's biodiversity. The website helps people learn about 
+Missouri's plants, animals, ecosystems, and the importance of protecting the state's natural environment.</p>
+                <p>Our mentor Steve helped us figure out the website stuff. We did the writing and the ideas. It took a while but we think it turned out 
+pretty cool.</p>
+                <ul class="actions">
+                    <li><a href="index.html" class="button">About Our Team</a></li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Links & Stuff -->
+        <section id="four" class="wrapper style1 fade-up">
+            <div class="inner">
+                <h2>Links &amp; Stuff</h2>
+                <p>Here's some cool places we got our info from, and where you can learn more:</p>
+                <div class="split style1">
+                    <section>
+                        <ul class="contact">
+                            <li>
+                                <h3>Missouri Department of Conservation</h3>
+                                <p>Where we got most of our plant and animal info from. Super helpful.</p>
+                                <a href="https://mdc.mo.gov/discover-nature/invasive-nuisance-species" target="_blank" rel="noopener">mdc.mo.gov (Invasive 
+Species)</a>
+                            </li>
+                            <li>
+                                <h3>Our Team Page</h3>
+                                <a href="index.html">ShearFun 71330 Home</a>
+                            </li>
+                            <li>
+                                <h3>First LEGO League</h3>
+                                <a href="https://firstlegoleague.org/" target="_blank" rel="noopener">firstlegoleague.org</a>
+                            </li>
+                            <li>
+                                <h3>Other Page</h3>
+                                <a href="index.html">river trash guy =^..^=</a>
+                                <a href="index.html">the rose kipp girl :D</a>
+                                <a href="index.html">mdc the kim rando :3</a>
+                            </li>
+                        </ul>
+                    </section>
+                    <section>
+                        <ul class="contact">
+                            <li>
+                                <h3>See a typo or something broken?</h3>
+                                <p>We're kids, we make mistakes. If something's wrong or you have a cool idea for the site, just click this button and tell 
+us. We'll look at it.</p>
+                                <ul class="actions">
+                                    <li><a href="https://github.com/Daddygeek1/Shear_Fun_web/issues/new/choose" class="button" target="_blank" 
+rel="noopener">Tell Us</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </section>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Footer -->
+    <footer id="footer" class="wrapper style1-alt">
+        <div class="inner">
+            <ul class="menu">
+                <li>&copy; 2026 ShearFun 71330</li>
+                <li><a href="index.html">Team Home</a></li>
+                <li><a href="https://github.com/Daddygeek1/Shear_Fun_web/issues/new/choose" target="_blank" rel="noopener">Tell Us</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+
+</body>
+</html>
+```
